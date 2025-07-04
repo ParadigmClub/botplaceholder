@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOT 2k25 - Site Under Construction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --purple-light: #8e24aa;
+            --purple-dark: #6a1b9a;
+            --text-light: #f5f5f5;
+            --text-dark: #212121;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--purple-dark), var(--purple-light));
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p.tagline {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--text-light);
+            color: var(--purple-dark);
+        }
+
+        .btn-primary:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .social a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>BOT 2k25</h1>
+        <p class="tagline">Interschool Tech Fest - Official site under construction.</p>
+        <p class="tagline"><em>Download our brochure to learn more.</em></p>
+        <div class="btn-group">
+            <a href="/brochure.html" target="_blank" class="btn btn-primary"> Brochure &nbsp; <i
+                    class="fa-solid fa-file"></i></a>
+            <a href="/register.html" target="_blank" class="btn btn-primary">Register Now &nbsp;
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="/discord.html" target="_blank" class="btn btn-primary">Join Discord&nbsp; <i
+                    class="fab fa-discord"></i></a>
+        </div>
+        <div class="social">
+            <a href="/discord.html" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://instagram.com/paradigxm" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.9rem; opacity:0.8;">
+            Have questions? Drop us a message on Discord!</p>
+    </div>
+</body>
+
+</html>
