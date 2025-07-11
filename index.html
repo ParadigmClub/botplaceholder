@@ -12,8 +12,8 @@
 
   <style>
     :root {
-      --accent: #00ffae;
-      --bg: #000;
+      --accent: #da14ff;
+      --bg: #0f0f0f;
       --fg: #e0e0e0;
     }
 
@@ -41,12 +41,22 @@
     /* ASCII banner */
     .ascii {
       font-family: "Courier New", monospace;
-      font-size: .65rem;
+      font-size: .6rem;
       line-height: 1;
       white-space: pre;
       color: var(--accent);
       text-shadow: 0 0 8px rgba(0,255,174,.5);
       user-select: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.9);  /* Increased from 0.9 */
+      margin: 0 rem;     /* Reduced negative margin */
+      width: calc(100% + 25rem); /* Compensate for margins */
+      padding: 0rem;     /* Add padding for better spacing */
     }
 
     /* Panel */
@@ -87,8 +97,19 @@
 
     /* ---------- Mobile Optimisation ---------- */
     @media (max-width: 760px) {
-      .grid { grid-template-columns: 1fr; padding: 3rem 1.25rem; gap: 1.8rem; }
-      .ascii { font-size: .48rem; text-align: center; order:-1; }
+      .grid { 
+        grid-template-columns: 1fr; 
+        padding: 3rem 1.25rem; 
+        gap: 1.8rem; 
+      }
+      .ascii { 
+        font-size: .45rem;
+        transform: scale(0.75);
+        margin: -1rem -3rem;
+        width: calc(100% + 6rem);
+        text-align: center;
+        order: -1;
+      }
       .panel { border: none; background: transparent; padding: 1.8rem 1.2rem; }
       .btn { width: 100%; }
     }
@@ -96,70 +117,199 @@
     @media (max-width: 420px) {
       h1 { font-size: 1.9rem; }
       .tagline { font-size: .9rem; }
+      .ascii {
+        font-size: .4rem;
+        transform: scale(0.7);
+        margin: -1.5rem -3.5rem;
+        width: calc(100% + 7rem);
+      }
+    }
+
+    /* ===== ASCII TEAM v5 ===== */
+.ascii-team-v5 {
+  --accent:  #39ff14;
+  --txt:     #f5f5f5;
+  --bg:      #000;
+  --card-bg: rgba(255,255,255,0.04);
+
+  max-width: 1200px;
+  margin:     5rem auto;
+  padding:    0 1rem;
+  text-align: center;
+  background: var(--bg);
+}
+
+.ascii-header {
+  font-family: "Courier New", monospace;
+  color:       var(--accent);
+  font-size:   1rem;
+  animation:   pulse 4s ease-in-out infinite;
+  margin-bottom: 2rem;
+}
+
+/* grid columns: 1fr (3) | 4fr (12) | 2fr (6) */
+.team-grid {
+  display:        grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  gap:            2rem;
+}
+
+/* group container */
+.group {
+  background:      var(--card-bg);
+  border:          1px dashed var(--accent);
+  border-radius:   8px;
+  padding:         1.5rem .75rem;
+  transition:      transform .2s, box-shadow .2s;
+}
+.group:hover {
+  transform:       translateY(-4px);
+  box-shadow:      0 0 10px var(--accent);
+}
+
+/* ASCII sub-header */
+.ascii-group-title {
+  font-family: "Courier New", monospace;
+  color:       var(--accent);
+  font-size:   .9rem;
+  margin:      0 auto 1rem;
+  line-height: 1.2;
+}
+
+/* member list */
+.members {
+  list-style:     none;
+  padding:        0;
+  margin:         0;
+  display:        flex;
+  flex-wrap:      wrap;
+  justify-content: center;
+  gap:            1rem;
+}
+.members li {
+  width:          80px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+.members img {
+  width:          70px;
+  height:         70px;
+  object-fit:     cover;
+  border-radius:  50%;
+  border:         2px solid var(--accent);
+  margin-bottom:  .4rem;
+}
+.members span {
+  font-family:    "Montserrat", sans-serif;
+  color:          var(--txt);
+  font-size:      .9rem;
+}
+
+/* subtle pulse effect on header */
+@keyframes pulse {
+  0%,100% { filter: brightness(1) }
+  50%     { filter: brightness(1.4) }
+}
+
+/* stack on narrow screens */
+@media (max-width: 800px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+/* Bottom Banner */
+.bottom-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: rgba(15,15,15,0.95);
+      border-top: 1px dashed var(--accent);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    
+    .bottom-banner a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    
+    .bottom-banner a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 760px) {
+      .bottom-banner {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="grid">
     <!-- ASCII banner generated from logo -->
-    <div class="ascii" aria-hidden="true">
-                                                                                 
-                                                                                 
-                                                         .  --.=.               
-                                                         --.+.+.=::             
-                                                           ======-:             
-                                                          .+##%%-               
-                        .+                                #@%==%%-              
-                      :.:+.-:                     .-     :@@@@@@%#+:            
-                      .-*==-+*=-.               :--:     =*@@%#-.               
-                        :++++*##*--.          :-:        +*#@%                  
-                      .   -++++#@=+        . +.          %@*##                  
-                 .=:. -=   .=+++=+.     .--=:+          -%%%*+.                 
-                   .:=:*..  .++=+=     :=:-*++          .+*@@#+:                
-                      -+++-.=+=++     ---%*+++        .+*=*@@@%*:               
-               .        +=++**+*+.   =:=%%+++=     ..-%@*=+@@@@@=               
-               =-       *:=+*%%#**-:+:=#*+++++..  -*%@%#+-*@@@@@%.              
-            . .+=.     .#*++*@@@%#*#@:=#**++++++.=@@@@@@@++%@@@%@+              
-          *=+#%@@@     :%@+=#@@@@#**%.=#%+++++++:.=*@@@#*-+=#@@@+               
-        .-::.:+%@@  .  +@*%%@@%#+=*%..:%#++++++=: .:=+--=.  :@@=                
-                -::::..+*%@@%#+::=#:  .**+++++=:          : =@@                 
-         :=+-:..:.      ..::::    ::    -+====-            :==:                 
-      .:+####***+                             .       ...                      
-      .=+=====-:    .....         :.....     ...      ...                      
-      .::...       :@@@+:         #@@@#.    .@@@=     ***.                     
-                 . .*@@@+         #@@@//+***+@@@#     #@@#                     
-                 :-:@@@@+         #@@@ -%%@@*@@@%     #@@#                     
-                 -::@@@#          #@@@::%%@@*@@@%     #@@#                     
-                   +@@@#          #@@@::*%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   =@@@#          #@@@::+%@@*@@@%     #@@#                     
-                   .+#@@@@%+++:===  *@@= .%@@.:@@#  %@@:   :@@%                 
-       ...:=====+++==*++**+=++=.+=- #@@%%%@@#..%@@%%@@#.   :@@%                 
-      .+=++=++==---::.+==-:+**==.== -======-    =+++=-     .===                 
-        :*+..             -+#**= .--.          :***#: +#:*#. :####. *#**+       
-        .=.              :#%@#++-+-==-:..      .==+@= *@%%:  .=-*@: #@*+-       
-                         =*@%*===+=++===--:::-.-%#++. +@@#   =%*+=  .--%%       
-                        .+##+=+++=-:=+===+:-:- =@#++: *@+%*  +@*++. +#+%%       
-                        :++=+++=-    .   .:    .:---. .: .-. .:---  .---.       
-                       -==++-+:                                                  
-                      .=+=:.-=                                                   
-                      -+:  ::                                                    
-                    .=:                                                          
-                                                                                 
-                                                                                 
+    <div class="ascii" aria-hidden="true">                                       
+                                                                                                    
+                                                                            # ##                    
+                                                                       ##  #### ##                  
+                                                                         ###########                
+                                                                          ########                  
+                                                                          #######                   
+                               ##                                        #########                  
+                               #                                        ###########                 
+                           ### #####                           ##       #############               
+                             ##### ####                      ###       #########                    
+                              ######### ##                 ###          ######                      
+                               ##############            ###           #######                      
+                                 ###########            #              #######                      
+                      ##   ###     ########         ### #             ########                      
+                       ####  #      #######       ##  ###             #########                     
+                           ### #    ######       ## #####              #########                    
+                            #####  ######       ## ######            ############                   
+                             ############      ## #######          ##############                   
+                  ##          ############    # #########       ##################                  
+                   ##         ################ ##########     ####################                  
+                     ##     ################## #### ######  ##########  ##########                  
+                      ###  ############################### ###  ######## #########                  
+                         #########################        #######################                   
+                              ############## ##               ## ################                   
+                                ########## ##                 #################                     
+                        ###       ####### ####                   ############                       
+       #####     ########################### #########      #######    ############                 
+        ########################### ###  ##  ###########   ########## #############                 
+      #### #########           #### #####    ###########  ########### #############                 
+         ##   ####              ##########   #####  ####  #####  ####     #####                     
+                                 ########    ###########  #####  ####     #####                     
+                          ################   ###########  #####  ####     #####                     
+                         #################   #####  ##### #####  ####     #####                     
+                        ############## ####  #####  ##### #####  ####     #####                     
+             ########################## # ## ############ ###########     #####                     
+        ####  #### ########## ###  ## ## # # ##########     ########      #####                     
+            #####                ######## ##                #####   ##  ##    ####   #######        
+          ####                  ######## #####             #######  ######  #######  #######        
+           ##                   ############# ##               ###  #####       ###  ######         
+                               ################ ########## #######  ####     ######  #######        
+                               ####### ######## ###        ###      #####   ###          ###        
+                               ############  ############# #######  ######  #######  #######        
+                              #### ######      #    ##     #######  ### ##   ######   #####         
+                              ## ######                                                             
+                             ###### ##                                                              
+                             ####   #                                                               
+                            ###   ##                                                                
+                           ###                                                                      
+                         ##                                                                         
+                                                                                                                                                                          
                                                                                  
     </div>
 
     <!-- Panel -->
     <div class="panel">
-      <h1>BOT 2k25</h1>
+      <h1>BOT 2K25</h1>
       <p class="tagline">Interschool Tech Fest — site under construction.</p>
       <p class="tagline"><em>Grab the brochure, register, or join our community below.</em></p>
       <div class="btn-group">
@@ -173,6 +323,10 @@
       </div>
       <p style="margin-top:1.2rem;font-size:.8rem;opacity:.8">Questions? Ping us on Discord.</p>
     </div>
+  </div>
+  
+  <div class="bottom-banner">
+    Done exploring? <a href="https://paradigmclub.co">Visit the Paradigm Club website →</a>
   </div>
 </body>
 </html>
